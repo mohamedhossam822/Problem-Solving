@@ -15,7 +15,7 @@ class Solution {
             curNumber=fN+lN+reminder;
             reminder=curNumber/10;
             curNumber=curNumber%10;
-            result.append(curNumber);
+            result.append((char) ('0' + curNumber));
             num1N--;
             num2N--;
         }
