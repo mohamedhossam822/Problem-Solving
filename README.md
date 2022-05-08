@@ -1,3 +1,3 @@
-# Problem-Solving
+# Check it again
 
-* [Stone Game](https://leetcode.com/explore/challenge/card/august-leetcoding-challenge-2021/613/week-1-august-1st-august-7th/3870/)
+* [Subarray Sum Equals K](https://github.com/mohamedhossam822/Problem-Solving/tree/main/560-subarray-sum-equals-k) (Prefix-sum / Hashtable)
