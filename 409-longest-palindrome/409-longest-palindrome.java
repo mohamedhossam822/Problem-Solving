@@ -1,20 +1,20 @@
-import java.util.Hashtable;
+import java.util.HashSet;
 class Solution {
     public int longestPalindrome(String s) {
-        Hashtable <Character, Integer> chrFreq=new Hashtable<>();
+        HashSet<Character> hs = new HashSet<Character>();
         int counter=0;
         char c;
         
         for(int i=0;i<s.length();i++){
             c=s.charAt(i);
-            if(chrFreq.containsKey(c))
+            if(hs.contains(c))
             {
-                chrFreq.remove(c);
+                hs.remove(c);
                 counter+=2;
             }
-            else chrFreq.put(c,1);
+            else hs.add(c);
         }
-        if(chrFreq.size()>0) counter++;
+        if(hs.size()>0) counter++;
         return counter;
         
     }
