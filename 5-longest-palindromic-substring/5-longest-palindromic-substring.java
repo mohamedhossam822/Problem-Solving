@@ -5,6 +5,8 @@ class Solution {
         char curCh2;
         
         int maxLength=0;
+        int maxL=0;
+        int maxR=0;
         String maxPal="";
         
         int l;
@@ -15,7 +17,8 @@ class Solution {
             while(l>-1 && r<s.length() && s.charAt(l)==s.charAt(r)){
                 if(r-l+1>maxLength){
                     maxLength=r-l+1;
-                    maxPal=s.substring(l,r+1);
+                    maxL=l;
+                    maxR=r;
                 }
                 r++;
                 l--;
@@ -25,7 +28,8 @@ class Solution {
             while(l>-1 && r<s.length() && s.charAt(l)==s.charAt(r)){
                 if(r-l+1>maxLength){
                     maxLength=r-l+1;
-                    maxPal=s.substring(l,r+1);
+                    maxL=l;
+                    maxR=r;
                 }
                 r++;
                 l--;
@@ -33,6 +37,6 @@ class Solution {
                 
         }
         
-        return maxPal;
+        return s.substring(maxL,maxR+1);
     }
 }
