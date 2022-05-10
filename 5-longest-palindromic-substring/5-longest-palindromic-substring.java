@@ -1,33 +1,29 @@
 import java.util.HashSet;
 class Solution {
     public String longestPalindrome(String s) {
-        char curCh;
-        char curCh2;
-        
-        int maxLength=0;
-        int maxL=0;
-        int maxR=0;
         String maxPal="";
-        
-        int l;
-        int r;
-        for(int i=0;i<s.length();i++){
+        int maxLength=0,maxL=0,maxR=0,len,l,r;
+        int n=s.length();
+        for(int i=0;i<n;i++){
             l=i;
             r=i;
-            while(l>-1 && r<s.length() && s.charAt(l)==s.charAt(r)){
-                if(r-l+1>maxLength){
-                    maxLength=r-l+1;
+            while(l>-1 && r<n && s.charAt(l)==s.charAt(r)){
+                len=r-l+1;
+                if(len>maxLength){
+                    maxLength=len;
                     maxL=l;
                     maxR=r;
                 }
                 r++;
                 l--;
             }
+            
             l=i;
             r=i+1;
             while(l>-1 && r<s.length() && s.charAt(l)==s.charAt(r)){
-                if(r-l+1>maxLength){
-                    maxLength=r-l+1;
+                len=r-l+1;
+                if(len>maxLength){
+                    maxLength=len;
                     maxL=l;
                     maxR=r;
                 }
