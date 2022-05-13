@@ -5,10 +5,9 @@ class Solution {
         int Sold=0;
         
         for(int i=1;i<prices.length;i++){
+            Buy=Math.max(Sell-prices[i],Buy);
             Sell=Math.max(Buy+prices[i]-fee,Sell);
-            Buy=Math.max(Sold-prices[i],Buy);
-            Sold=Sell;
         }
-        return Sold;
+        return Sell;
     }
 }
