@@ -20,12 +20,9 @@ class Solution {
              if(height[i]>tallest){
                  tallest=height[i];
              }    
-            r[i]=tallest;
+            sum=sum+Math.min(l[i],tallest)-height[i]; 
         }
         
-        for(i=0;i<height.length;i++){
-           sum=sum+Math.min(l[i],r[i])-height[i]; 
-        }
         return sum;
     }
 }
