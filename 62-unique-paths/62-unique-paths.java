@@ -1,30 +1,19 @@
 import java.util.HashMap; 
 class Solution {
-    HashMap<ArrayList<Integer>, Integer> cache;
-    //int[][] grid;
+    int[][] grid;
     int m;
     int n;
     public int uniquePaths(int m, int n) {
-        cache = new HashMap<>();
-        //grid=new int[m][n];
+        grid=new int[m][n];
         ArrayList<Integer> list=new ArrayList<>(2);
-        list.add(1);
-        list.add(1);
-        cache.put(list,1);
-        return visit(m,n);   
+        grid[0][0]=1;
+        return visit(m-1,n-1);   
     }
     public int visit(int i,int j){
         if(i<0 || j<0) return 0;
-        ArrayList<Integer> list=new ArrayList<>(2);
-        list.add(i);
-        list.add(j);
-        if(cache.containsKey(list)) return cache.get(list);
+        if(grid[i][j]!=0) return grid[i][j];
         int val=visit(i-1,j)+visit(i,j-1);
-        cache.put(list,val);
-        list=new ArrayList<>(2);
-        list.add(j);
-        list.add(i);
-        cache.put(list,val);
+        grid[i][j]=val;
         return val;
     }
 }
