@@ -1,12 +1,12 @@
 import java.util.HashMap; 
 class Solution {
     HashMap<ArrayList<Integer>, Integer> cache;
-    int[][] grid;
+    //int[][] grid;
     int m;
     int n;
     public int uniquePaths(int m, int n) {
         cache = new HashMap<>();
-        grid=new int[m][n];
+        //grid=new int[m][n];
         ArrayList<Integer> list=new ArrayList<>(2);
         list.add(1);
         list.add(1);
