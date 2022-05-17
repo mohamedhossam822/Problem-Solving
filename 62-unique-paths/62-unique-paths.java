@@ -21,6 +21,10 @@ class Solution {
         if(cache.containsKey(list)) return cache.get(list);
         int val=visit(i-1,j)+visit(i,j-1);
         cache.put(list,val);
+        list=new ArrayList<>(2);
+        list.add(j);
+        list.add(i);
+        cache.put(list,val);
         return val;
     }
 }
