@@ -5,7 +5,6 @@ class Solution {
     int n;
     public int uniquePaths(int m, int n) {
         grid=new int[m][n];
-        ArrayList<Integer> list=new ArrayList<>(2);
         grid[0][0]=1;
         return visit(m-1,n-1);   
     }
