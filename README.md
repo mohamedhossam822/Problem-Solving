@@ -9,3 +9,4 @@
 * [Matrix Block Sum](https://github.com/mohamedhossam822/Problem-Solving/tree/main/1314-matrix-block-sum) (Prefix sum/Sliding window/DP/matrix)
 * [Longest Palindromic Substring](https://github.com/mohamedhossam822/Problem-Solving/tree/main/5-longest-palindromic-substring) (String/DP)
 * [Longest Palindromic Subsequence](https://github.com/mohamedhossam822/Problem-Solving/tree/main/516-longest-palindromic-subsequence) (String/DP)
+* [Edit Distance](https://github.com/mohamedhossam822/Problem-Solving/tree/main/72-edit-distance) (DP/ So similar to LCS)
