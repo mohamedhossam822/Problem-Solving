@@ -1,22 +1,18 @@
 class Solution {
     public int coinChange(int[] coins, int amount) {
-        HashMap<Integer, Integer> dp = new HashMap<>();
-        dp.put(0,0);
+        if(amount==0) return 0;
+        int[] dp=new int[amount+1];
         int temp;
         for(int i=1;i<=amount;i++){
             for(int j=0;j<coins.length;j++){
-                if(i==coins[j]) dp.put(i,1);
+                if(i==coins[j]) dp[i]=1;
                 else if(i>coins[j]){
-                    if(dp.containsKey(i-coins[j])){
-                        temp=1+dp.get(i-coins[j]);
-                        if(dp.containsKey(i)){
-                            if(temp<dp.get(i)) dp.put(i,temp);
-                        }else dp.put(i,temp);
-                    }
+                    temp=i-coins[j];
+                    if(dp[temp]!=0 &&(dp[i]==0 || 1+dp[temp]<dp[i])) dp[i]=1+dp[temp];
                 }
             }
         }
-        if(dp.containsKey(amount)) return dp.get(amount);
+        if(dp[amount]!=0) return dp[amount];
         return -1;
     }
 }
