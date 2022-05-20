@@ -10,3 +10,5 @@
 * [Longest Palindromic Substring](https://github.com/mohamedhossam822/Problem-Solving/tree/main/5-longest-palindromic-substring) (String/DP)
 * [Longest Palindromic Subsequence](https://github.com/mohamedhossam822/Problem-Solving/tree/main/516-longest-palindromic-subsequence) (String/DP)
 * [Edit Distance](https://github.com/mohamedhossam822/Problem-Solving/tree/main/72-edit-distance) (DP/ So similar to LCS)
+* [Coin Change](https://github.com/mohamedhossam822/Problem-Solving/blob/main/322-coin-change/322-coin-change.java) (DP/ Caching)
+* [Coin Change 2](https://github.com/mohamedhossam822/Problem-Solving/tree/main/518-coin-change-2) (DP/ Caching) (Very Important)
