@@ -9,7 +9,7 @@ class Solution {
             people[trust[i][1]]++;
         }
         for(int i=1;i<n+1;i++){
-            if(people[i]>=0 && people[i]==n-1)   return i;
+            if(people[i]==n-1)   return i;
         }
         return -1;
     }
