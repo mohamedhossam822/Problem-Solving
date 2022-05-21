@@ -4,8 +4,8 @@ class Solution {
         for(int i=0;i<n;i++){
             vertices.add(i);
         }
-        for(int i=0;i<edges.size();i++){
-            vertices.remove(edges.get(i).get(1));
+        for(List<Integer> j : edges){
+            vertices.remove(j.get(1));
         }
         return  new ArrayList<Integer>(vertices);
     }
