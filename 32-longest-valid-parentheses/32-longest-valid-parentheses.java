@@ -6,26 +6,23 @@ class Solution {
         Stack<Integer> preLen=new Stack<>();
         for(int i=0;i<s.length();i++){
             if(s.charAt(i)==')'){
-                if(st.empty()){
-                    preLen.push(0);
-                }
-                else {
+                if(!st.empty()){
                     len=i-st.pop()+1;
-                    while(preLen.pop()!=0){
-                    }
+                    while(preLen.pop()!=0){}
                     if(!preLen.empty() && preLen.peek()!=0){
                         len+=preLen.pop();
                         preLen.push(len);
                     } else preLen.push(len);
                     if(len>max) max=len;
+                    
                 }
+                else preLen.push(0);
             }
             else {
                 preLen.push(0);
                 st.push(i);
             }
         }
-        if(st.empty() && len>max) max=len;
         return max;
     }
 }
