@@ -19,18 +19,13 @@ class Solution {
     }
     public void CoverIsland(int i,int j,char[][] grid)
     {
-        try{
-            if(grid[i][j]=='1')
-                grid[i][j]='2';
-            else return;
-        }
-        catch(Exception e){
-            return;
-        }
+        if(grid[i][j]=='1')
+            grid[i][j]='2';
+        else return;
         
-        CoverIsland(i-1,j,grid);
-        CoverIsland(i,j+1,grid);
-        CoverIsland(i,j-1,grid);
-        CoverIsland(i+1,j,grid);
+        if(i>0) CoverIsland(i-1,j,grid);
+        if(j<grid[i].length-1) CoverIsland(i,j+1,grid);
+        if(j>0) CoverIsland(i,j-1,grid);
+        if(i<grid.length-1) CoverIsland(i+1,j,grid);
     }
 }
