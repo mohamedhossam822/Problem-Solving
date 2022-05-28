@@ -14,3 +14,4 @@
 * [Coin Change 2](https://github.com/mohamedhossam822/Problem-Solving/tree/main/518-coin-change-2) (DP/ Caching) (Very Important)
 * [Russian Doll Envelopes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/354-russian-doll-envelopes)(DP/ Caching) (Very Important)
 * [Longest Consecutive Sequence](https://github.com/mohamedhossam822/Problem-Solving/tree/main/128-longest-consecutive-sequence) (hash/new idea)
+* [Longest Repeating Character Replacement](https://github.com/mohamedhossam822/Problem-Solving/tree/main/424-longest-repeating-character-replacement) (Sliding window/hash)
