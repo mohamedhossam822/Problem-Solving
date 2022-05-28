@@ -27,12 +27,14 @@ class Solution {
                     index.poll();
                     c=cIndex.peek();
                 }
-                f=1;
-                for(int j=0;j<58;j++){
-                    if(Tchars[j]>0){
-                        f=0;
-                        break;
-                    }}
+                if(f==0){
+                    f=1;
+                    for(int j=0;j<58;j++){
+                        if(Tchars[j]>0){
+                            f=0;
+                            break;
+                    }}  
+                }
                 if(f==1 && (i+1-index.peek())<min){
                     min= i+1-index.peek();
                     start=index.peek();
