@@ -2,13 +2,11 @@ import java.util.Queue;
 class Solution {
     public String minWindow(String s, String t) {
         int[] Tchars=new int[58];
-        HashMap<Character,Integer> tMap=new HashMap<>();
         char c;
         int min=100001,start=0,end=0;
         for(int i=0;i<t.length();i++){
             c=t.charAt(i);
             Tchars[c-'A']++;
-            tMap.put(c, tMap.getOrDefault(c, 0) + 1);
         }
         int f=0;
         Queue<Integer> index= new LinkedList<>();
@@ -16,12 +14,11 @@ class Solution {
         int[] chars=new int[58];
         for(int i=0;i<s.length();i++){
             c=s.charAt(i);
-            if(tMap.containsKey(c)){
+            if(Tchars[c-'A']>0){
                 chars[c-'A']++;
-                Tchars[c-'A']--;
                 index.add(i);
                 cIndex.add(c);
-                while(chars[c-'A']>tMap.get(c) && cIndex.peek()==c){
+                while(chars[c-'A']>Tchars[c-'A'] && cIndex.peek()==c){
                     chars[c-'A']--;
                     cIndex.poll();
                     index.poll();
@@ -30,7 +27,7 @@ class Solution {
                 if(f==0){
                     f=1;
                     for(int j=0;j<58;j++){
-                        if(Tchars[j]>0){
+                        if(Tchars[j]>chars[j]){
                             f=0;
                             break;
                     }}  
@@ -43,7 +40,7 @@ class Solution {
                 
             }
         }
-        if(min==100001) return "";
+        if(f==0) return "";
         return s.substring(start,end);
         
     }
