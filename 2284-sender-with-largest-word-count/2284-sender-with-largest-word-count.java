@@ -8,18 +8,15 @@ class Solution {
             if(hm.containsKey(senders[i])) hm.put(senders[i],word.length+hm.get(senders[i]));
             else hm.put(senders[i],word.length);
         }
-        int max=0;
+        int max=0,n;
         for (Map.Entry<String, Integer> set :hm.entrySet()) {
-            if(set.getValue()>5000) return set.getKey();
-            if(set.getValue()>max) max=set.getValue();
-            if(msgSent[set.getValue()]==null) msgSent[set.getValue()]=set.getKey();
-            else{
-                if(set.getKey().compareTo(msgSent[set.getValue()])>0){
-                    msgSent[set.getValue()]=set.getKey();
-                } 
-            }
+            n=set.getValue();
+            if(n>5000) return set.getKey();
+            if(n>max) max=n;
+            if(msgSent[n]==null || set.getKey().compareTo(msgSent[n])>0)
+               msgSent[n]=set.getKey();
         }
-        return msgSent[max];
         
+        return msgSent[max];
     }
 }
