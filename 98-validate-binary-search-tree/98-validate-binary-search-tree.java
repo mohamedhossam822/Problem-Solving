@@ -20,7 +20,6 @@ class Solution {
     public boolean isValidBST(TreeNode root) {
         valid=true;
         prevDef=false;
-        prev=Integer.MIN_VALUE;
         inorder(root);
         return valid;
     }
