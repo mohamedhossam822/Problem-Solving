@@ -9,7 +9,7 @@ class Solution {
         }
         for(int i=0;i<words.length-1;i++){
             for(int j=i+1;j<words.length;j++){
-                if(isValid(i,j,chars)){
+                if(isValid(words[i],j,chars)){
                     val=words[i].length()*words[j].length();
                     if(val>max) {
                         max=val;
@@ -21,9 +21,9 @@ class Solution {
         return max;
     }
     
-    private boolean isValid(int i,int j,int[][] chars){
-        for(int k=0;k<26;k++){
-            if(chars[i][k]!=0 && chars[j][k]!=0) return false;
+    private boolean isValid(String s,int j,int[][] chars){
+        for(int k=0;k<s.length();k++){
+            if(chars[j][s.charAt(k)-'a']!=0) return false;
         }
         return true;
     }
