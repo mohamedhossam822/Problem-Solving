@@ -10,7 +10,6 @@
  */
 class Solution {
     public void reorderList(ListNode head) {
-        if(head.next==null) return;
         ListNode slow=head;
         ListNode fast=head.next;
         //Divide the list//
