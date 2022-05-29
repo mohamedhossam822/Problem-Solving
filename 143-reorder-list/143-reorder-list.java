@@ -13,24 +13,31 @@ class Solution {
         if(head.next==null) return;
         ListNode slow=head;
         ListNode fast=head.next;
-        Stack<ListNode> s=new Stack<>();
-        while(fast.next!=null && fast.next.next!=null){
+        //Divide the list//
+        //Get the start of the second list
+        while(fast!=null && fast.next!=null){
             slow=slow.next;
             fast=fast.next.next;
         }
-        while(slow.next!=null){
-            s.push(slow.next);
-            slow=slow.next;
+        slow=slow.next;
+        //Reverse the second part of the list
+        ListNode temp,prev=null;
+        while(slow!=null){
+            temp=slow.next;
+            slow.next=prev;
+            prev=slow;
+            slow=temp;
         } 
+        slow=prev;
         ListNode current=head;
-        ListNode temp;
-        while(!s.empty()){
+        while(current!=null && slow!=null){
             temp=current.next;
-            current.next=s.pop();
+            current.next=slow;
+            slow=slow.next;
             current.next.next=temp;
             current=temp;
         }
-        current.next.next=null;
+        current.next=null;
         
     }
 }
