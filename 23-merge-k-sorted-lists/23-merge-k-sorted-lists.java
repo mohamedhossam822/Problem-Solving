@@ -10,30 +10,38 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        ListNode res=new ListNode();
-        ListNode current=res;
-        int minIndex,n=lists.length;
-        boolean found;
-        while(true){
-            found=false;
-            minIndex=0;
-            for(int i=0;i<n;i++){
-                if(found){
-                    if(lists[i]!=null && lists[i].val<lists[minIndex].val) minIndex=i;
-                }
-                else{
-                    if(lists[i]!=null){
-                        minIndex=i;
-                        found=true;
-                    }  
-                }
+        
+        if(lists.length==0) return null;
+        return divideAndSort(0,lists.length-1,lists);
+    }
+    private ListNode divideAndSort(int i,int j,ListNode[] lists){
+        if(i==j) return lists[i];
+        int mid=i+(j-i)/2;
+        ListNode list1=divideAndSort(i,mid,lists);
+        ListNode list2=divideAndSort(mid+1,j,lists);
+        return mergeTwoLists(list1,list2);
+        
+    }
+    
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        if (list1 == null && list2 == null) return null;
+
+        ListNode Head = new ListNode();
+        ListNode current = Head;
+
+        while (true) {
+            if (list1 != null && (list2 == null || list1.val <= list2.val)) {
+                current.val = list1.val;
+                if (list1.next != null) list1 = list1.next; else list1 = null;
+            } else if (list2 != null && (list1 == null || list2.val < list1.val)) {
+                current.val = list2.val;
+                if (list2.next != null) list2 = list2.next; else list2 = null;
             }
-            if(!found) break;
-            current.next=new ListNode(lists[minIndex].val);
-            current=current.next;
-            lists[minIndex]=lists[minIndex].next;
-            
+            if (list1 == null && list2 == null) break; else {
+                current.next = new ListNode();
+                current = current.next;
+            }
         }
-        return res.next;
+        return Head;
     }
 }
