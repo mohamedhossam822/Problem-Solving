@@ -7,7 +7,7 @@ class Solution {
             num=0;
             index=i;
             for(int j=k-1;j>=0;j--){
-                num+=Math.pow(2,j)*Character.getNumericValue(s.charAt(index));
+                if(s.charAt(index)=='1') num+=Math.pow(2,j);
                 index++;
             }
             if(!nums[num]) {
