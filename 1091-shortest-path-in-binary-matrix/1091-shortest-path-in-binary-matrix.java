@@ -4,6 +4,7 @@ class Solution {
         if (grid[0][0] == 1) return -1;
         int m = grid.length, n = grid[0].length;
         boolean[][] visited = new boolean[m][n];
+        boolean[][] marked = new boolean[m][n];
         int[][] shortestPath = new int[m][n];
         int dir[][] = new int[][] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 }, { 1, -1 }, { -1, 1 }, { -1, -1 }, { 1, 1 } };
         shortestPath[0][0] = 1;
@@ -17,19 +18,20 @@ class Solution {
             i = p[0];
             j = p[1];
             if (i == m - 1 && j == n - 1) break;
-            visited[i][j] = true;
+            
             for (int r[] : dir) {
                 int dx = r[0] + i;
                 int dy = r[1] + j;
                 if (dx >= 0 && dx < m && dy >= 0 && dy < n && grid[dx][dy] == 0) {
-                    if(!visited[dx][dy]) {
+                    if(!marked[dx][dy]) {
                         shortestPath[dx][dy]=1+shortestPath[i][j];
-                        pq.add(new Pair <> (shortestPath[dx][dy],new int[]{dx,dy}));
+                        if(!visited[i][j]) pq.add(new Pair <> (shortestPath[dx][dy],new int[]{dx,dy}));
                     }
                     else if(1+shortestPath[i][j]<shortestPath[dx][dy]) shortestPath[dx][dy]=1+shortestPath[i][j];
-                    visited[dx][dy]=true;
+                    marked[dx][dy]=true;
                 }
             }
+            visited[i][j] = true;
             
         }
         if (shortestPath[m - 1][n - 1] == 0) return -1;
