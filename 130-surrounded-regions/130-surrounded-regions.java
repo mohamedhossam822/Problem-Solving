@@ -1,5 +1,4 @@
 class Solution {
-    int[][] dir;
     int m, n;
 
     public void solve(char[][] board) {
@@ -32,10 +31,5 @@ class Solution {
         dfs(i, j+1, board);
         dfs(i-1, j, board);
         dfs(i+1, j, board);
-    }
-
-    public boolean isValid(int i, int j) {
-        if (i < 0 || j < 0 || i >= m || j >= n) return false;
-        return true;
     }
 }
