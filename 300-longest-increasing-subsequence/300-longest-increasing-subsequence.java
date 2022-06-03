@@ -1,26 +1,19 @@
 class Solution {
-    int[] grid;
-    int n;
-    int globalSum;
     public int lengthOfLIS(int[] nums) {
-        n=nums.length;
-        grid=new int[n];
-        globalSum=1;
-        getMax(0,nums);
-        return globalSum;
-    }
-    private int getMax(int i,int[] nums){
-        if(grid[i]!=0) return grid[i];
-        int sum=0;
-        int maxSum=1;
-        for(int r=i+1;r<n;r++){
-            sum=getMax(r,nums);
-            if(nums[i]<nums[r] && sum+1>maxSum){
-                maxSum=sum+1;
-            } 
+        //list of lists of integers
+        int[] dp=new int[nums.length];
+        int val,max=1;
+        //loop through the array determining the longest subsequence from this point
+        for(int i=nums.length-1;i>=0;i--){
+            dp[i]=1;
+            for(int j=i+1;j<nums.length;j++){
+                if(nums[i]<nums[j]){
+                    val=1+dp[j];
+                    if(val>dp[i]) dp[i]=val;
+                    if(dp[i]>max) max=dp[i];
+                }
+            }
         }
-        grid[i]=maxSum;
-        if(maxSum>globalSum) globalSum=maxSum;
-        return maxSum;
+        return max;
     }
 }
