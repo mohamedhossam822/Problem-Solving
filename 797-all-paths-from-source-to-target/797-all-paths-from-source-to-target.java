@@ -9,7 +9,7 @@ class Solution {
     public void dfs(int i,int[][] graph,int target,List<Integer> list){
         list.add(i);
         if(i==target){
-            res.add(new ArrayList<>(list));
+            res.add(list);
             return;
         }
         for(int path : graph[i]) dfs(path,graph,target,new ArrayList<>(list));
