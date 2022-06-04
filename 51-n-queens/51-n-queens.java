@@ -21,16 +21,15 @@ class Solution {
             if(!visited[i][j]){
                 grid[i][j]='Q';
                 points=mark(i,j,visited,n);
-                BackTrack(i+1,grid.clone(),visited.clone(),n);
+                BackTrack(i+1,grid,visited,n);
                 unmark(points,visited);
                 grid[i][j]='.';
             }
         }
     }
-    //Get point to be marked & unmarked
-    //mark 
-    List<List<Integer>> mark(int x,int y,boolean[][] visited,int n)
-    {
+    
+    //mark the ones I can't visit
+    List<List<Integer>> mark(int x,int y,boolean[][] visited,int n){
         List<List<Integer>> res=new ArrayList<>();
         List<Integer> temp;
         //mark the whole col
@@ -97,13 +96,15 @@ class Solution {
         }
         return res;
     }
-    void unmark(List<List<Integer>> points,boolean[][] visited)
-    {
+    
+    //unmark the visited one
+    void unmark(List<List<Integer>> points,boolean[][] visited){
         //mark the whole col
         for(List temp: points){
             visited[(int)temp.get(0)][(int)temp.get(1)]=false;
         }
     }
+    
     //Turn to List<String>
     List<String> TurnToListString(char[][] grid,int n){
         List<String> res=new ArrayList<>(n);
@@ -118,6 +119,5 @@ class Solution {
         return res;
         
     }
-    //Close Function mark all points that i can't visit
     
 }
