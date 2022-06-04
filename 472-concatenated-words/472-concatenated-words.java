@@ -1,6 +1,7 @@
 class Solution {
+    HashSet<String> Dict=new HashSet<>();
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
-        HashSet<String> Dict=new HashSet<>();
+        
         List<String> res=new LinkedList<>();
         String[] subStrings;
         String toCheck;
@@ -13,13 +14,13 @@ class Solution {
         if(min==0) min=1;
         //Travers through each string
         for(int i=0;i<words.length;i++){
-            if(canForm(min,words[i],Dict)) res.add(words[i]);
+            if(canForm(min,words[i])) res.add(words[i]);
         }
         return res;
             
     }
     
-    public boolean canForm(int min,String s,HashSet<String> Dict){
+    public boolean canForm(int min,String s){
         String left,right;
         for(int j=min;j<=s.length()-min;j++)
         {
@@ -29,7 +30,7 @@ class Solution {
             //The reason we dnt check for canform(left) is bec 
             //by the end of the loop we will already have checked every possible substring
             if(Dict.contains(left))
-                if(Dict.contains(right) || canForm(min,right,Dict)){
+                if(Dict.contains(right) || canForm(min,right)){
                     Dict.add(right);
                     return true;
                 } 
