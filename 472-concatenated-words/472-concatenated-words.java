@@ -29,8 +29,11 @@ class Solution {
             //The reason we dnt check for canform(left) is bec 
             //by the end of the loop we will already have checked every possible substring
             if(Dict.contains(left))
-                if(Dict.contains(right) || canForm(min,right,Dict)) 
+                if(Dict.contains(right) || canForm(min,right,Dict)){
+                    Dict.add(right);
                     return true;
+                } 
+                    
         }
         return false;
     }
