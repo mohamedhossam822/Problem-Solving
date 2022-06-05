@@ -7,13 +7,14 @@ class Solution {
         return new ArrayList<>(res);
     }
     //backtrack function to get all possible outcomes
-    public  void Backtrack(int start,int[] nums,int n,List<Integer> points){
-        if(start==n) return;
-        for(int i=start;i<n;i++){
-            points.add(nums[i]);
+    public  void Backtrack(int i,int[] nums,int n,List<Integer> points){
+        if(i==n) return;
+        points.add(nums[i]);
+        //if(!res.contains(points)){
             res.add(new ArrayList<>(points));
             Backtrack(i+1,nums,n,points);
-            points.remove(points.size()-1); 
-        } 
+        //}
+        points.remove(points.size()-1); 
+        Backtrack(i+1,nums,n,points);
     } 
 }
