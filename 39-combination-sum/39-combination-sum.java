@@ -4,19 +4,19 @@ class Solution {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         dp = new ArrayList<HashSet<List<Integer>>>(target + 1);
+        List<Integer> temp;
         for (int i = 0; i <= target; i++) {
             dp.add(null);
-        };
-        List<Integer> temp = new ArrayList<>();
-        for (int i = 0; i <= target; i++) {
-            for (int j = 0; j < candidates.length; j++) {
-                if (candidates[j] == i) {
-                    if (dp.get(i) == null) dp.set(i, new HashSet<>());
-                    temp = new ArrayList<>();
-                    temp.add(i);
-                    dp.get(i).add(temp);
-                }
+        }
+        for (int j = 0; j < candidates.length; j++) {
+            if (target >= candidates[j]) {
+                if (dp.get(candidates[j]) == null) dp.set(candidates[j], new HashSet<>());
+                temp = new ArrayList<>();
+                temp.add(candidates[j]);
+                dp.get(candidates[j]).add(temp);
             }
+        }
+        for (int i = 0; i <= target; i++) {
             for (int j = 0; j <= i / 2; j++) {
                 if (dp.get(j) == null || dp.get(i - j) == null) continue;
                 if (dp.get(i) == null) dp.set(i, new HashSet<>());
@@ -40,7 +40,7 @@ class Solution {
         // dp[6]=[{2,2,2,},{3,3}];
         // dp[7]=[{2,5},{2,2,3}];
         // dp[8]=[{2,2,2,2,},{2,3,3},{3,5},{3,2,3}];
-        if(dp.get(target)==null) return new ArrayList<>();
+        if (dp.get(target) == null) return new ArrayList<>();
         return new ArrayList<>(dp.get(target));
     }
 }
