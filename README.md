@@ -22,3 +22,40 @@
 * [Russian Doll Envelopes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/354-russian-doll-envelopes)(DP/ Caching) (Very Important)
 * [Edit Distance](https://github.com/mohamedhossam822/Problem-Solving/tree/main/72-edit-distance) (DP/ So similar to LCS)
 * [Concatenated words](https://github.com/mohamedhossam822/Problem-Solving/tree/main/472-concatenated-words)(String/hashing/Caching/Dp)
+
+# Tips & Patterns
+### Heaps/ Priority queue
+* Kth largest/smallest element
+   * Kth smallest element -> Maintain a Max Heap and then pop the element O(k) space & vice versa*
+* Kth closet points to point (x,y) 
+   * Same concept can be used with dijkstra to get min path
+### BFS
+* Mostly used when getting min path from point A to all points in a graph
+* Use a table with min distances & updated it on finding a smaller value
+* Uses queue data structure / A Point is visited when its popped from the queue
+* If you use Priority queue then node is visited and has the min path when popped (dijkstra algorthim)
+* O(|V|+|E|) time complexity where V number of vertices / E number of edges
+### DFS
+* Brute force Algorthim : O(|V|+|E|) time complexity where V number of vertices / E number of edges
+* Can be used when populating an are with a different value 
+* Not every 2D matrix has to be traversed from (0,0) can we approach the problem from a different point and start populating
+### Backtracking 
+* Brute force Algorthim : O(n!) Hamiltonian Cycle or O(2^n)
+* O(2^n) when a problem is solved by dividing it into 2 (n-1) problems T(n)=0(1)+2T(n-1)
+* No duplicates ? think about a hashtable to save the points you used while traversing down the tree.
+* Don't use the same element twice ? make an index and travers the next level from index +1
+* Don't want to travers the same path twice ? HashSet and save the points you already visited in the function (Horizontally)/ also sorting and comparing with previous element can be helpful
+* **Very Important**: Draw A **State Space Tree** and write the resultant lists/arrays not the sum/the stopping condition (Also helpful for Memoization/Caching) 
+### Dynamic Programming
+* The Key is finding the subproblem is it a list that If I get to it I will repeat some computaions I made ? or is that an index in array or 2d array ?
+* Top-down Approach
+   * Let's say I want to find the min jumps I can make to to reach the end common way is if we start at index 0 compute the min between index 1 & 2 and add it to 0 and so recursively.
+   * What if I start from the end ? this will often lead to iterative approach & may reduce the space complexity to O(1) since most times you just need the last 2 element to compare.
+* Bottom-up Approach  
+   *  Most of the time this will happen when u want to solve a problem of n.
+   *  Lets say you want to get all the possible values that sum to n from array nums.
+   *  Ok what if we get the solution for DP[O] and DP[1] first wouldn't that give us the solution for DP[2]=DP[1]+DP[1]
+   *  And then from that I can get DP[3]=DP[2]+DP[1] I don't need DP[1]+DP[1]+DP[1] since DP[2] already computed D[1]+DP[1] for use.
+   *  And then we work our way up till we reach DP[N]
+* Both Top-down & Bottom-up will often lead from recursive approach to Iterative approach
+* 2D Dynamic programming is often a DFS But you save the values in an other grid so you  walk 0-0 0-1 1-1 1-2 ... and then walk 0-0 1-0 1-1 oh wait didn't I walk from 1-1 before ? 
