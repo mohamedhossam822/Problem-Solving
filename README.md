@@ -59,3 +59,6 @@
    *  And then we work our way up till we reach DP[N]
 * Both Top-down & Bottom-up will often lead from recursive approach to Iterative approach
 * 2D Dynamic programming is often a DFS But you save the values in an other grid so you  walk 0-0 0-1 1-1 1-2 ... and then walk 0-0 1-0 1-1 oh wait didn't I walk from 1-1 before ? 
+
+# Useful Resources
+* [14 Pattern to ace the Coding Interview](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
