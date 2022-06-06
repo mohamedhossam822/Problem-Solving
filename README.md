@@ -24,6 +24,11 @@
 * [Concatenated words](https://github.com/mohamedhossam822/Problem-Solving/tree/main/472-concatenated-words)(String/hashing/Caching/Dp)
 
 # Tips & Patterns
+### LinkedList
+* Most of time the difficulty of these problem will be to try to optimize the space complexity or to solve in one loop
+* Floyd's Tortoise and Hare Algorithm (Cycle Detection) is particularly useful here
+* Drawin a pictur can be really helpful what should point to what exactly ? 
+* Saving a prev Node can helop ease up reconstructing the links 
 ### Heaps/ Priority queue
 * Kth largest/smallest element
    * Kth smallest element -> Maintain a Max Heap and then pop the element O(k) space & vice versa*
