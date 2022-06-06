@@ -9,25 +9,23 @@
  *     }
  * }
  */
-import java.io.*;
-import java.util.*;
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         if(headA==null || headB==null) return null;
         
-        Hashtable<ListNode, Character > htA = new Hashtable<>();
+        HashSet<ListNode> set = new HashSet<>();
         ListNode tempA=headA;
         
         while(tempA.next!=null){
-            htA.put(tempA,' ');
+            set.add(tempA);
             tempA=tempA.next;
         }
-        htA.put(tempA,' ');
+        set.add(tempA);
         
         ListNode tempB=headB;
         
         while(tempB!=null){
-            if(htA.containsKey(tempB)){
+            if(set.contains(tempB)){
                 return tempB;
             }
             else if(tempB.next!=null) tempB=tempB.next;
