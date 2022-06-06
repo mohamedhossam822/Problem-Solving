@@ -1,27 +1,29 @@
-import java.util.Hashtable;
 class Solution {
-     public boolean wordBreak(String s, List<String> wordDict) {
-        boolean[] dp = new boolean[s.length()+1];
-        Arrays.fill(dp, false);        
-        dp[s.length()] = true;
-        for(int i = s.length(); i >= 0; i--)
-        {
-            for( String w: wordDict)
-            {
-                if( i + w.length() <= s.length() && s.substring(i, i + w.length()).equals(w))
-                {
-                    dp[i] = dp[i + w.length()];
-                }
-                if(dp[i])
-                {
-                    
-                    break;
-                   
-                }
-                
-            }
+    boolean[] cache;
+    boolean[] cacheCh;
+    public boolean wordBreak(String s, List<String> wordDict) {
+        int n=s.length();
+        cache=new boolean[n];
+        cacheCh=new boolean[n];
+        return findWord(s,n,0,wordDict);
+    }
+    private boolean findWord(String s,int n,int index, List<String> wordDict){
+        if(index==n) return true;
+        if(cache[index]) return cacheCh[index];
+        int temp=0;
+        boolean val;
+        for(int i=0;i<wordDict.size();i++){
+            temp=wordDict.get(i).length();
+            if(temp+index>n) continue;
+            if(s.substring(index,temp+index).equals(wordDict.get(i))){
+                val=findWord(s,n,temp+index,wordDict);
+                cache[index]=true;
+                cacheCh[index]=val;
+                if(val) return true;
+            }   
         }
-        return dp[0];
-        
+        cache[index]=true;
+        cacheCh[index]=false;
+        return false;
     }
 }
