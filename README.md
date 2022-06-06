@@ -1,5 +1,6 @@
 # Check it again
-
+### Easy
+* [Counting Bits] (https://github.com/mohamedhossam822/Problem-Solving/tree/main/338-counting-bits)(DP/Bit manipulation)
 ### Medium
 * [Subarray Sum Equals K](https://github.com/mohamedhossam822/Problem-Solving/tree/main/560-subarray-sum-equals-k) (Prefix-sum / Hashtable)
 * [Partition Labels](https://github.com/mohamedhossam822/Problem-Solving/tree/main/763-partition-labels) (LinkedHashMap / DP / Sliding window)
@@ -12,7 +13,6 @@
 * [Longest Palindromic Subsequence](https://github.com/mohamedhossam822/Problem-Solving/tree/main/516-longest-palindromic-subsequence) (String / DP)
 * [Coin Change](https://github.com/mohamedhossam822/Problem-Solving/blob/main/322-coin-change/322-coin-change.java) (DP/ Caching)
 * [Coin Change 2](https://github.com/mohamedhossam822/Problem-Solving/tree/main/518-coin-change-2) (DP/ Caching) (Very Important)
-
 * [Longest Consecutive Sequence](https://github.com/mohamedhossam822/Problem-Solving/tree/main/128-longest-consecutive-sequence) (hash / new idea)
 * [Longest Repeating Character Replacement](https://github.com/mohamedhossam822/Problem-Solving/tree/main/424-longest-repeating-character-replacement) (Sliding window / hash)
 
