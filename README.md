@@ -1,6 +1,6 @@
 # Check it again
 ### Easy
-* [Counting Bits] (https://github.com/mohamedhossam822/Problem-Solving/tree/main/338-counting-bits)(DP/Bit manipulation)
+* [Counting Bits](https://github.com/mohamedhossam822/Problem-Solving/tree/main/338-counting-bits) (DP/Bit manipulation)
 ### Medium
 * [Subarray Sum Equals K](https://github.com/mohamedhossam822/Problem-Solving/tree/main/560-subarray-sum-equals-k) (Prefix-sum / Hashtable)
 * [Partition Labels](https://github.com/mohamedhossam822/Problem-Solving/tree/main/763-partition-labels) (LinkedHashMap / DP / Sliding window)
