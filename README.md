@@ -29,6 +29,8 @@
 * Floyd's Tortoise and Hare Algorithm (Cycle Detection) is particularly useful here
 * Drawin a pictur can be really helpful what should point to what exactly ? 
 * Saving a prev Node can helop ease up reconstructing the links 
+### Trees
+* For binary search trees : Inorder traversal & Preorder traversal can be a way to solve a lot of problems also level traversal
 ### Heaps/ Priority queue
 * Kth largest/smallest element
    * Kth smallest element -> Maintain a Max Heap and then pop the element O(k) space & vice versa*
