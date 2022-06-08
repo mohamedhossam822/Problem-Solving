@@ -8,7 +8,7 @@ class Solution {
         int[][] shortestPath = new int[m][n];
         int dir[][] = new int[][] { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 }, { 1, -1 }, { -1, 1 }, { -1, -1 }, { 1, 1 } };
         shortestPath[0][0] = 1;
-        PriorityQueue<Pair<Integer, int[]>> pq = new PriorityQueue<Pair<Integer, int[]>>(4, (a, b) -> a.getKey() - b.getKey());
+        Queue<Pair<Integer, int[]>> pq = new LinkedList<Pair<Integer, int[]>>();
         pq.add(new Pair<>(1, new int[] { 0, 0 }));
         int[] p;
         int i, j;
