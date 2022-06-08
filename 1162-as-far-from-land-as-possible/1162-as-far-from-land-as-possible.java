@@ -1,45 +1,35 @@
 class Solution {
-    int[][] maxDistance;
-    int n,max;
+
     public int maxDistance(int[][] grid) {
-        max=0;
-        int val1,val2;
-        n=grid.length;
-        maxDistance=new int[n][n];
-        for(int i=0;i<n;i++)
-            for(int j=0;j<n;j++){
-                if(grid[i][j]==1) maxDistance[i][j]=1;
-                else{
-                    if(i>0 && maxDistance[i-1][j]>0) val1=  grid[i-1][j]==1 ?  1 : maxDistance[i-1][j]+1;
-                    else val1=0;
-                    if(j>0 && maxDistance[i][j-1]>0) val2=  grid[i][j-1]==1 ?  1 : maxDistance[i][j-1]+1;
-                    else val2=0;
-                    if(val1==0)  maxDistance[i][j]=val2;
-                    else if(val2==0)  maxDistance[i][j]=val1;
-                    else maxDistance[i][j]=Math.min(val1,val2);
-                } 
-            }
-        int val3;
-        for(int i=n-1;i>=0;i--)
-            for(int j=n-1;j>=0;j--){
-                if(grid[i][j]==1) maxDistance[i][j]=1;
-                else{
-                    if(i<n-1 && maxDistance[i+1][j]>0) val1=  grid[i+1][j]==1 ?  1 : maxDistance[i+1][j]+1;
-                    else val1=0;
-                    if(j<n-1 && maxDistance[i][j+1]>0) val2=  grid[i][j+1]==1 ?  1 : maxDistance[i][j+1]+1;
-                    else val2=0;
-                    val3=0;
-                    if(val1==0)  val3=val2;
-                    else if(val2==0)  val3=val1;
-                    else val3=Math.min(val1,val2);
-                    if(val3!=0) {
-                        if(maxDistance[i][j]==0)  maxDistance[i][j]=val3;
-                        else  maxDistance[i][j]=Math.min(val3,maxDistance[i][j]);
-                    }
-                    if(maxDistance[i][j]>max) max=maxDistance[i][j];
+        int max = 0;
+        int val1, val2;
+        int n = grid.length;
+        int[][] minDistance = new int[n][n];
+
+        //Check the min between the top and the left cell
+        for (int i = 0; i < n; i++) 
+            for (int j = 0; j < n; j++) {
+                if (grid[i][j] == 1) minDistance[i][j] = 1; 
+                else {
+                    if (i > 0 && minDistance[i - 1][j] > 0) val1 = minDistance[i - 1][j] + 1; 
+                    else val1 = 201;
+                    if (j > 0 && minDistance[i][j - 1] > 0) val2 = minDistance[i][j - 1] + 1; 
+                    else val2 = 201;
+                    minDistance[i][j] = Math.min(val1, val2);
                 }
             }
-        if(max==0) return -1;
-        return max;
+        //Check the min between the bottom and the right cell
+        for (int i = n - 1; i >= 0; i--) 
+            for (int j = n - 1; j >= 0; j--) {
+                if (grid[i][j] == 1) minDistance[i][j] = 1; 
+                else {
+                    if (i < n - 1 && minDistance[i + 1][j] > 0) val1 = minDistance[i + 1][j] + 1; else val1 = 201;
+                    if (j < n - 1 && minDistance[i][j + 1] > 0) val2 = minDistance[i][j + 1] + 1; else val2 = 201;
+                    minDistance[i][j] = Math.min(Math.min(val1, val2), minDistance[i][j]);
+                    if (minDistance[i][j] > max) max = minDistance[i][j];
+                }
+            }
+        if (max >= 201) return -1;
+        return max - 1;
     }
 }
