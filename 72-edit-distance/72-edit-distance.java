@@ -5,22 +5,19 @@ class Solution {
         m=word1.length();
         n=word2.length();
         grid=new int[m][n];
-        return getMin(0,word1,0,word2);
+        return minDistance(0 ,word1 ,0 ,word2);
     }
-    private int getMin(int i,String text1,int j,String text2){
-        if(i==m && j==n) return 0;
-        if(i==m)    return n-j;
-        if(j==n)    return m-i;
-        if(grid[i][j]!=0) return grid[i][j];
-        int val;
-        if(text1.charAt(i)==text2.charAt(j)){
-            val=getMin(i+1,text1,j+1,text2);
-            grid[i][j]=val;
-            return val;
-        }
-        val=1+Math.min(Math.min(getMin(i,text1,j+1,text2),getMin(i+1,text1,j,text2))
-                ,getMin(i+1,text1,j+1,text2));
-        grid[i][j]=val;
-        return val;
+    //Inserting  word i+1
+    //Deleting  word 2 j+1
+    //Replacing word i+1 , j+1
+    private int minDistance(int i ,String word1 ,int j ,String word2){
+        if(i==m) return n-j;
+        if(j==n) return m-i;
+        if(grid[i][j] !=0) return grid[i][j];
+        if(word1.charAt(i)==word2.charAt(j))
+            grid[i][j]=minDistance(i+1 ,word1 ,j+1 ,word2);
+        else grid[i][j]=1+Math.min(Math.min(minDistance(i+1 ,word1 ,j ,word2),
+                                       minDistance(i ,word1 ,j+1 ,word2)),minDistance(i+1 ,word1 ,j+1 ,word2));
+        return grid[i][j];
     }
 }
