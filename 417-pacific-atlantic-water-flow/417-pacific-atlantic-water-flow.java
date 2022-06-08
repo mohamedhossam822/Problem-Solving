@@ -7,16 +7,16 @@ class Solution {
         boolean[][] isPacific=new boolean[m][n];
         boolean[][] isAtlantic=new boolean[m][n];
         for(int i=0;i<m;i++){
-            dfs(i,0,heights,-1,isPacific);
+            dfs(i,0,heights,0,isPacific);
         }
         for(int j=1;j<n;j++){
-            dfs(0,j,heights,-1,isPacific);
+            dfs(0,j,heights,0,isPacific);
         }
         for(int i=0;i<m;i++){
-            dfs(i,n-1,heights,-1,isAtlantic);
+            dfs(i,n-1,heights,0,isAtlantic);
         }
         for(int j=0;j<n-1;j++){
-            dfs(m-1,j,heights,-1,isAtlantic);
+            dfs(m-1,j,heights,0,isAtlantic);
         }
 
         List<Integer> temp;
