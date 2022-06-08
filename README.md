@@ -18,7 +18,6 @@
 
  ### Hard
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
-* [Merge k Sorted Lists](https://github.com/mohamedhossam822/Problem-Solving/tree/main/23-merge-k-sorted-lists) (Divide & Conquer/Linked lists/priority queue)
 * [Russian Doll Envelopes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/354-russian-doll-envelopes)(DP/ Caching) (Very Important)
 * [Concatenated words](https://github.com/mohamedhossam822/Problem-Solving/tree/main/472-concatenated-words)(String/hashing/Caching/Dp)
 
