@@ -7,10 +7,9 @@ class Solution {
             if(i-1>dp[i-1]) dp[i-1]=i-1;
             int max=0;
             for(int j=1;j<=i/2;j++){
-                temp=j*dp[i-j];
-                if(temp>max) max=temp;
+                dp[i]=Math.max(dp[i],Math.max(dp[j],j)*dp[i-j]);
             }
-            dp[i]=max;
+            
         }
         return  dp[n];
     }
