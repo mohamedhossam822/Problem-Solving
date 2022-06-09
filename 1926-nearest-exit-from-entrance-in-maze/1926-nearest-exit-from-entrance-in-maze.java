@@ -7,45 +7,63 @@ class Solution {
         //Directions
         int[][] dir = {{0, -1}, {-1, 0},{0, 1},{1, 0}};
         //Make a queue
-        Queue<Pair> q=new LinkedList<>();
-        q.add(new Pair(entrance,0));
+        PriorityQueue<Pair> pq=new PriorityQueue<>();
+        int distance;
+        //Look for exits
+        for(int i=0;i<m;i++){
+           if(maze[i][0]=='.'&& (entrance[0]!=i || entrance[1]!=0)){
+               distance=Math.abs(i-entrance[0])+Math.abs(0-entrance[1]);
+               pq.add(new Pair(new int[]{i,0},0,distance));
+           }
+            if(maze[i][n-1]=='.' && (entrance[0]!=i || entrance[1]!=n-1)){
+                distance=Math.abs(i-entrance[0])+Math.abs((n-1)-entrance[1]);
+                pq.add(new Pair(new int[]{i,n-1},0,distance));
+           }
+        }
+        for(int j=1;j<n-1;j++){
+            if(maze[0][j]=='.' && (entrance[0]!=0 || entrance[1]!=j)){
+               distance=Math.abs(0-entrance[0])+Math.abs(j-entrance[1]);
+               pq.add(new Pair(new int[]{0,j},0,distance)); 
+            }
+            if(maze[m-1][j]=='.' && (entrance[0]!=m-1 || entrance[1]!=j)){
+                distance=Math.abs((m-1)-entrance[0])+Math.abs(j-entrance[1]);
+                pq.add(new Pair(new int[]{m-1,j},0,distance));
+                
+            }
+        }
         //Temp point
         Pair curPoint;
-        while(!q.isEmpty()){
-            int size=q.size();
-            while(size>0){
-                curPoint=q.poll();
+        while(!pq.isEmpty()){
+                curPoint=pq.poll();
                 int x=curPoint.point[0];
                 int y=curPoint.point[1];
                 //Check if point is exit
-                if(x==0 || y==0 || x==m-1 || y==n-1){
-                    if(x!=entrance[0] || y!=entrance[1]){
-                        min=Math.min(min,curPoint.len);
-                    }
-                }
+                if(x==entrance[0] && y==entrance[1]) return curPoint.len;
                 for(int[] r : dir){
                     int i=r[0]+x;
                     int j=r[1]+y;
                     if(i<0 || j<0 || i>m-1 || j>n-1) continue;
                     if(maze[i][j]=='.') {
-                        q.add(new Pair(new int[]{i,j},curPoint.len+1));
-                        maze[i][j]='+';
-                        
+                        distance=Math.abs(i-entrance[0])+Math.abs(j-entrance[1]);
+                        pq.add(new Pair(new int[]{i,j},curPoint.len+1,curPoint.len+1+distance)); 
                     }
                 }
-                size--;
-            }
+            maze[x][y]='+';
         }
-        if(min==Integer.MAX_VALUE) return -1;
-        return min;
+        return -1;
     }
     
-    private class Pair{
+    class Pair implements Comparable<Pair>{
         int[] point;
         int len;
-        public Pair(int[] point,int len){
+        int distance;
+        Pair(int[] point,int len,int distance){
             this.point=point;
             this.len=len;
+            this.distance=distance;
+        }
+        public int compareTo(Pair o){
+            return this.distance - o.distance;
         }
     }
 }
