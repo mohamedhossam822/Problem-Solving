@@ -1,16 +1,18 @@
 class Solution {
-    HashSet<Integer> visited;
+    
     public boolean canVisitAllRooms(List<List<Integer>> rooms) {
-        visited=new HashSet<>();
-        visit(0,rooms);
-        return visited.size()==rooms.size();
+        boolean[] visited=new boolean[rooms.size()];
+        visit(0,rooms,visited);
+        for(boolean isVisited: visited) if(!isVisited) return false;
+        return true;
     }
-    private void visit(int i,List<List<Integer>> rooms){
-        visited.add(i);
-        int r;
-        for(int j=0;j<rooms.get(i).size();j++){
-            r=rooms.get(i).get(j);
-            if(!visited.contains(r)) visit(r,rooms);
+    private void visit(int room,List<List<Integer>> rooms,boolean[] visited){
+        visited[room]=true;
+        List<Integer> keys=rooms.get(room);
+        int roomKey;
+        for(int j=0;j<keys.size();j++){
+            roomKey=keys.get(j);
+            if(!visited[roomKey]) visit(roomKey,rooms,visited);
         }
     }
 }
