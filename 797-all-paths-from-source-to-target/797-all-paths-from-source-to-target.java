@@ -3,15 +3,17 @@ class Solution {
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         int target=graph.length-1;
         res=new ArrayList<>();
-        dfs(0,graph,target,new ArrayList<Integer>());
+        List<Integer> list=new ArrayList<Integer>();
+        list.add(0);
+        dfs(0,graph,target,list);
         return res;
     }
     public void dfs(int i,int[][] graph,int target,List<Integer> list){
-        list.add(i);
-        if(i==target){
-            res.add(list);
-            return;
-        }
-        for(int path : graph[i]) dfs(path,graph,target,new ArrayList<>(list));
+        for(int path : graph[i]){
+            list.add(path);
+            if(target==path) res.add(new ArrayList<>(list));
+            else dfs(path,graph,target,list);
+            list.remove(list.size()-1);
+        } 
     }
 }
