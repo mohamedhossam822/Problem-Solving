@@ -46,9 +46,10 @@ class Solution {
                     if(maze[i][j]=='.') {
                         distance=Math.abs(i-entrance[0])+Math.abs(j-entrance[1]);
                         pq.add(new Pair(new int[]{i,j},curPoint.len+1,curPoint.len+1+distance)); 
+                        maze[i][j]='+';
                     }
                 }
-            maze[x][y]='+';
+            
         }
         return -1;
     }
