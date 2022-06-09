@@ -17,17 +17,16 @@ class Solution {
                     dfs(i,j,grid,island2);
                 }
         
-        //island 1 (0,1)
-        //island (1,0)
-        //preform a on each point to island 2 
-        int x2,y2;
+        //Compare every 2 points with each other
+        int x2,y2,x1,y1,val;
         for(int i=0;i<island1.size();i++){
-            int x1=island1.get(i)[0];
-            int y1=island1.get(i)[1];
+            x1=island1.get(i)[0];
+            y1=island1.get(i)[1];
             for(int j=0;j<island2.size();j++){
                 x2=island2.get(j)[0];
                 y2=island2.get(j)[1];
-                min=Math.min(min,Math.abs(x2-x1)+Math.abs(y2-y1));
+                val=Math.abs(x2-x1)+Math.abs(y2-y1);
+                if(val<min) min=val;
             }
         }
         return min-1;
