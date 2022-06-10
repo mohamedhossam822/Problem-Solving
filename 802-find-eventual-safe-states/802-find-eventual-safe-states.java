@@ -4,12 +4,15 @@ class Solution {
         List<Integer> res=new ArrayList<>();
         boolean[] safe=new boolean[graph.length];
         boolean[] visited=new boolean[graph.length];
+        boolean isTerminal=false;
         for(int i=0;i<n;i++){
             if(graph[i].length==0){
                 safe[i]=true;
                 visited[i]=true;
+                isTerminal=true;
             } 
         }
+        if(!isTerminal) return new ArrayList<>();
         for(int i=0;i<n;i++){
             if(!visited[i])
             dfs(i,graph,visited,safe);
