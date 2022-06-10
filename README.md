@@ -28,12 +28,19 @@
 * Drawin a pictur can be really helpful what should point to what exactly ? 
 * Saving a prev Node can helop ease up reconstructing the links 
 ### Trees
+* Ask yourself is the tree a perfect tree , binary search tree or just a regular tree ?
 * For binary search trees : Inorder traversal & Preorder traversal can be a way to solve a lot of problems also level traversal
 ### Heaps/ Priority queue
 * Kth largest/smallest element
    * Kth smallest element -> Maintain a Max Heap and then pop the element O(k) space & vice versa*
 * Kth closet points to point (x,y) 
    * Same concept can be used with dijkstra to get min path
+
+### Graphs
+* BFS & DFS are your best friends
+* Creating an Adjacency Matrix or Adjacency List can be helpful and the latter will be used more than often.
+* A* can be useful if you want to get the min distance from 4 points to point x (you only need 1 point).
+* Take care if the graph is directed or undirected(helps in making the list)
 ### BFS
 * Mostly used when getting min path from point A to all points in a graph
 * Use a table with min distances & updated it on finding a smaller value
