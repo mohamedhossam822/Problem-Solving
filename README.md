@@ -20,6 +20,7 @@
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
 * [Russian Doll Envelopes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/354-russian-doll-envelopes)(DP/ Caching) (Very Important)
 * [Concatenated words](https://github.com/mohamedhossam822/Problem-Solving/tree/main/472-concatenated-words)(String/hashing/Caching/Dp)
+* [Shortest Path Visiting All Nodes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/847-shortest-path-visiting-all-nodes)(BFS/ DP/ Bit Masking) (Very Important)
 
 # Tips & Patterns
 ### LinkedList
