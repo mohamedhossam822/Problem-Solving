@@ -16,6 +16,7 @@
 * [Longest Consecutive Sequence](https://github.com/mohamedhossam822/Problem-Solving/tree/main/128-longest-consecutive-sequence) (hash / new idea)
 * [Longest Repeating Character Replacement](https://github.com/mohamedhossam822/Problem-Solving/tree/main/424-longest-repeating-character-replacement) (Sliding window / hash)
 * [Shuffle an Array](https://github.com/mohamedhossam822/Problem-Solving/tree/main/384-shuffle-an-array)[Math/ Fisher–Yates shuffle]
+* [Bitwise AND of Numbers Range](https://github.com/mohamedhossam822/Problem-Solving/tree/main/201-bitwise-and-of-numbers-range)[Bit manipulation]
 
  ### Hard
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
@@ -73,6 +74,8 @@
    *  And then we work our way up till we reach DP[N]
 * Both Top-down & Bottom-up will often lead from recursive approach to Iterative approach
 * 2D Dynamic programming is often a DFS But you save the values in an other grid so you  walk 0-0 0-1 1-1 1-2 ... and then walk 0-0 1-0 1-1 oh wait didn't I walk from 1-1 before ? 
+### Bit manipulation
+* AND operation between 2 numbers will always result in a lesser Number (12 & 11 = 8 )
 ### Math
 * For a slope starting from x1,y1 it determines how many points lie on that line slope=(y2-y1/x2-x1) (care for Divison by zero!)
 # Useful Resources
