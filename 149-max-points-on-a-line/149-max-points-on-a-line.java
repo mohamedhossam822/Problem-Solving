@@ -42,6 +42,7 @@ class Solution {
                     if(slopes.get(slope).size()>max) max=slopes.get(slope).size();
                 }  
             }
+            if(max>=(n-i)) break;
             slopes.clear();
             vertical.clear();
             horizontal.clear();
