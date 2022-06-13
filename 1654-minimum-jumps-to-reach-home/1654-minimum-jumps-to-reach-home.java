@@ -1,10 +1,19 @@
 class Solution {
-    boolean[] visitedF=new boolean[10001];
-    boolean[] visitedB=new boolean[10001];
-    int[] cacheF=new int[10001];
-    int[] cacheB=new int[10001];
-    
+    boolean[] visitedF;
+    boolean[] visitedB;
+    int[] cacheF;
+    int[] cacheB;
+    int max=0;
     public int minimumJumps(int[] forbidden, int a, int b, int x) {
+        
+        for(int i=0;i<forbidden.length;i++)
+            if(forbidden[i]>max) max=forbidden[i];
+        
+        max=a+b+Math.max(x,max);
+        visitedF=new boolean[max+1];
+        visitedB=new boolean[max+1];
+        cacheF=new int[max+1];
+        cacheB=new int[max+1];
         
         for(int i=0;i<forbidden.length;i++) {
             cacheF[forbidden[i]]=Integer.MAX_VALUE;
@@ -21,7 +30,7 @@ class Solution {
     
     public int dfs(boolean back,int index,int a,int b,int x){
         
-        if(index<0 || index>10000) return Integer.MAX_VALUE;
+        if(index<0 || index>max) return Integer.MAX_VALUE;
         
         if(!back && visitedF[index]) return Integer.MAX_VALUE;
         if(back && visitedB[index]) return Integer.MAX_VALUE;
