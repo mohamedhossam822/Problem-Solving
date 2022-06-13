@@ -17,6 +17,7 @@
 * [Longest Repeating Character Replacement](https://github.com/mohamedhossam822/Problem-Solving/tree/main/424-longest-repeating-character-replacement) (Sliding window / hash)
 * [Shuffle an Array](https://github.com/mohamedhossam822/Problem-Solving/tree/main/384-shuffle-an-array)[Math/ Fisher–Yates shuffle]
 * [Bitwise AND of Numbers Range](https://github.com/mohamedhossam822/Problem-Solving/tree/main/201-bitwise-and-of-numbers-range)[Bit manipulation]
+* [Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/) [Math/Bézout's identity]
 
  ### Hard
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
@@ -78,5 +79,7 @@
 * AND operation between 2 numbers will always result in a lesser Number (12 & 11 = 8 )
 ### Math
 * For a slope starting from x1,y1 it determines how many points lie on that line slope=(y2-y1/x2-x1) (care for Divison by zero!)
+* Bézout's identity
+
 # Useful Resources
 * [14 Pattern to ace the Coding Interview](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
