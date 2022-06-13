@@ -37,7 +37,6 @@ class Solution {
         int result=Integer.MAX_VALUE;
         
         result=dfs(false,index+a,a,b,x);
-        if(!back) result=Math.min(result,dfs(true,index-b,a,b,x));
         
         if(back){
             if(result==Integer.MAX_VALUE) cacheB[index]=Integer.MAX_VALUE;
@@ -45,6 +44,7 @@ class Solution {
             return cacheB[index];
         }
         else{
+            result=Math.min(result,dfs(true,index-b,a,b,x));
             if(result==Integer.MAX_VALUE) cacheF[index]=Integer.MAX_VALUE;
             else cacheF[index]=result+1;
             return cacheF[index];
