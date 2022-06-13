@@ -10,6 +10,7 @@ class Solution {
             if(forbidden[i]>max) max=forbidden[i];
         
         max=a+b+Math.max(x,max);
+        max=Math.min(10000,max);
         visitedF=new boolean[max+1];
         visitedB=new boolean[max+1];
         cacheF=new int[max+1];
