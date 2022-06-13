@@ -6,12 +6,7 @@ class Solution {
         HashSet<String> Visited=new HashSet<>();
         List<HashSet<Character>> charList=new ArrayList<>(len);
         for(int i=0;i<len;i++) charList.add(new HashSet<>());
-        for(int i=0;i<wordList.size();i++){
-            for(int j=0;j<len;j++){
-                charList.get(j).add(wordList.get(i).charAt(j));
-            }
-            dict.add(wordList.get(i));
-        }
+        for(int i=0;i<wordList.size();i++) dict.add(wordList.get(i));
         if(!dict.contains(endWord)) return 0;
         
         Queue<String> q=new LinkedList<>();
@@ -23,7 +18,7 @@ class Solution {
                 StringBuilder str=new StringBuilder(q.poll());
                 for(int i=0;i<len;i++){
                     char ch=str.charAt(i);
-                    for(char c:charList.get(i)){
+                    for (char c = 'a'; c <= 'z'; c++) {
                         if(c==ch) continue;
                         str.setCharAt(i,c);
                         String resString=str.toString();
