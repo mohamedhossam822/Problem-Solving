@@ -18,6 +18,7 @@
 * [Shuffle an Array](https://github.com/mohamedhossam822/Problem-Solving/tree/main/384-shuffle-an-array)[Math/ Fisher–Yates shuffle]
 * [Bitwise AND of Numbers Range](https://github.com/mohamedhossam822/Problem-Solving/tree/main/201-bitwise-and-of-numbers-range)[Bit manipulation]
 * [Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/) [Math/Bézout's identity]
+* [Possible Bipartition](https://github.com/mohamedhossam822/Problem-Solving/tree/main/886-possible-bipartition) [Graphs / Bipartition]
 
  ### Hard
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
@@ -45,6 +46,7 @@
 * Creating an Adjacency Matrix or Adjacency List can be helpful and the latter will be used more than often.
 * A* can be useful if you want to get the min distance from 4 points to point x (you only need 1 point).
 * Take care if the graph is directed or undirected(helps in making the list)
+* Bipartition is when you want to divide some nodes in a graph into 2 sets where there are no cycles between odd number of nodes(think of colouring)
 ### BFS
 * Mostly used when getting min path from point A to all points in a graph
 * Use a table with min distances & updated it on finding a smaller value
