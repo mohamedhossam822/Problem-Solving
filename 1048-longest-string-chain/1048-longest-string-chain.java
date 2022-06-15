@@ -4,6 +4,7 @@ class Solution {
         max=1;
         int n=words.length;
         if(n==0) return 0;
+        Arrays.sort(words, (a,b)-> a.length()-b.length());
         int[] longestPre=new int[words.length];
         for(int i=0;i<n;i++){
             if(longestPre[i]==0) getMaxPred(i,new HashSet<Integer>(),words,longestPre,n);
@@ -15,7 +16,7 @@ class Solution {
         if(longestPre[index]!=0) return longestPre[index];
         longestPre[index]=1;
         visited.add(index);
-        for(int i=0;i<n;i++){
+        for(int i=index+1;i<n;i++){
             if(visited.contains(i)) continue;
             if(isPred(words[index],words[i]))
             longestPre[index]=Math.max(longestPre[index],1+getMaxPred(i,visited,words,longestPre,n));
