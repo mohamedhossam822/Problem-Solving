@@ -6,23 +6,15 @@ class Solution {
         if(n==0) return 0;
         Arrays.sort(words, (a,b)-> a.length()-b.length());
         int[] longestPre=new int[words.length];
-        for(int i=0;i<n;i++){
-            if(longestPre[i]==0) getMaxPred(i,new HashSet<Integer>(),words,longestPre,n);
+        for(int i=n-1;i>=0;i--){
+            longestPre[i]=1;
+            for(int j=i+1;j<n;j++){
+                if(isPred(words[i],words[j]))
+                longestPre[i]=Math.max(longestPre[i],1+longestPre[j]);
+            }
+            if(longestPre[i]>max) max=longestPre[i];
         }
         return max;
-    }
-    
-    public int getMaxPred(int index,HashSet<Integer> visited,String[] words,int[] longestPre,int n){
-        if(longestPre[index]!=0) return longestPre[index];
-        longestPre[index]=1;
-        visited.add(index);
-        for(int i=index+1;i<n;i++){
-            if(visited.contains(i)) continue;
-            if(isPred(words[index],words[i]))
-            longestPre[index]=Math.max(longestPre[index],1+getMaxPred(i,visited,words,longestPre,n));
-        }
-        if(longestPre[index]>max) max=longestPre[index];
-        return longestPre[index];
     }
     
     //Check if word1 isPred to word2
