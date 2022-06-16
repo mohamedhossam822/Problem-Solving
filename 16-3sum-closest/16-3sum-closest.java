@@ -6,12 +6,11 @@ class Solution {
         int sum,newDiff,diff=Integer.MAX_VALUE;
         int number=nums[0];
         for(int i=0;i<n-2;i++){
-            if(nums[i]==number && i!=0) continue;
             number=nums[i];
             l=i+1;
             r=n-1;
             while(r>l){
-                sum= number+nums[l]+nums[r];
+                sum=number+nums[l]+nums[r];
                 if(sum==target) return target;
                 newDiff=Math.abs(sum-target);
                 if(newDiff<diff){
