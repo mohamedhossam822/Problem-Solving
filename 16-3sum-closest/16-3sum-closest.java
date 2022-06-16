@@ -17,8 +17,8 @@ class Solution {
                     diff=newDiff;
                     bestVal=sum;
                 }
-                if(target>sum) l++;
-                else r--;
+                if(target<sum) r--;
+                else l++;
             }
         }
         
