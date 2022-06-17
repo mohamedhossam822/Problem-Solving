@@ -25,6 +25,7 @@
 * [Russian Doll Envelopes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/354-russian-doll-envelopes)(DP/ Caching) (Very Important)
 * [Concatenated words](https://github.com/mohamedhossam822/Problem-Solving/tree/main/472-concatenated-words)(String/hashing/Caching/Dp)
 * [Shortest Path Visiting All Nodes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/847-shortest-path-visiting-all-nodes)(BFS/ DP/ Bit Masking) (Very Important)
+* [Binary Tree Cameras](https://github.com/mohamedhossam822/Problem-Solving/tree/main/968-binary-tree-cameras) (Trees/greedy/dfs/DP)
 
 # Tips & Patterns
 ### LinkedList
