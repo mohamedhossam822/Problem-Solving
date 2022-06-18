@@ -26,6 +26,7 @@
 * [Concatenated words](https://github.com/mohamedhossam822/Problem-Solving/tree/main/472-concatenated-words)(String/hashing/Caching/Dp)
 * [Shortest Path Visiting All Nodes](https://github.com/mohamedhossam822/Problem-Solving/tree/main/847-shortest-path-visiting-all-nodes)(BFS/ DP/ Bit Masking) (Very Important)
 * [Binary Tree Cameras](https://github.com/mohamedhossam822/Problem-Solving/tree/main/968-binary-tree-cameras) (Trees/greedy/dfs/DP)
+* [Prefix and Suffix Search](https://github.com/mohamedhossam822/Problem-Solving/tree/main/745-prefix-and-suffix-search) (Tries)
 
 # Tips & Patterns
 ### LinkedList
