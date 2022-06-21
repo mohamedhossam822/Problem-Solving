@@ -9,7 +9,6 @@
  *     }
  * }
  */
-import java.util.HashSet;
 public class Solution {
     public ListNode detectCycle(ListNode head) {
         HashSet<ListNode> set=new HashSet<>();
