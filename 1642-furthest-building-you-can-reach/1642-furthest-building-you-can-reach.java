@@ -4,14 +4,11 @@ class Solution {
         int n=heights.length;
         PriorityQueue<Integer> minHeap=new PriorityQueue<>(ladders+1);
         int bricksNeeded=0;
-        int next,current,smallest;
         for(int i=0;i<n-1;i++){
-            next=heights[i+1];
-            current=heights[i];
-            if(next<=current) continue;
-            minHeap.add(next-current);
+            if(heights[i+1]<=heights[i]) continue;
+            minHeap.add(heights[i+1]-heights[i]);
             if(minHeap.size()>ladders){
-                smallest=minHeap.poll();
+                int smallest=minHeap.poll();
                 bricksNeeded+=smallest;
                 if(bricksNeeded>bricks) return i;
             }
