@@ -13,10 +13,10 @@ class Solution {
             } 
         }
         if(!isTerminal) return new ArrayList<>();
-        for(int i=0;i<n;i++){
+        
+        for(int i=0;i<n;i++)
             if(!visited[i])
-            dfs(i,graph,visited,safe);
-        }
+                dfs(i,graph,visited,safe);
         
         for(int i=0;i<n;i++)
             if(safe[i])
