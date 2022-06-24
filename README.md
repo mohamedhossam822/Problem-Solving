@@ -29,6 +29,8 @@
 * [Prefix and Suffix Search](https://github.com/mohamedhossam822/Problem-Solving/tree/main/745-prefix-and-suffix-search) (Tries)
 * [Regular Expression Matching](https://github.com/mohamedhossam822/Problem-Solving/tree/main/10-regular-expression-matching) (DP/Recursion/Memoization)
 * [Largest Rectangle in Histogram](https://github.com/mohamedhossam822/Problem-Solving/tree/main/84-largest-rectangle-in-histogram) (Stack/Monotonic stack)
+* [Course Schedule III](https://github.com/mohamedhossam822/Problem-Solving/tree/main/630-course-schedule-iii) (Heaps/Greedy)
+
 # Tips & Patterns
 ### LinkedList
 * Most of time the difficulty of these problem will be to try to optimize the space complexity or to solve in one loop
