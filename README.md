@@ -30,6 +30,7 @@
 * [Regular Expression Matching](https://github.com/mohamedhossam822/Problem-Solving/tree/main/10-regular-expression-matching) (DP/Recursion/Memoization)
 * [Largest Rectangle in Histogram](https://github.com/mohamedhossam822/Problem-Solving/tree/main/84-largest-rectangle-in-histogram) (Stack/Monotonic stack)
 * [Course Schedule III](https://github.com/mohamedhossam822/Problem-Solving/tree/main/630-course-schedule-iii) (Heaps/Greedy)
+* [Construct Target Array With Multiple Sums](https://github.com/mohamedhossam822/Problem-Solving/tree/main/1354-construct-target-array-with-multiple-sums) (Heaps/ Math/ new idea)
 
 # Tips & Patterns
 ### LinkedList
