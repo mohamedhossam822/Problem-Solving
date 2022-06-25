@@ -8,12 +8,12 @@ class Solution {
         }
         
         int[] color=new int[n+1];
-        boolean res=true;
+        
         for(int i=1;i<n+1;i++){
             if(color[i]!=0) continue;
-            res&=dfs(0,i,color,peopleDislike);
+            if(!dfs(0,i,color,peopleDislike)) return false;
         }
-        return res;
+        return true;
     }
     
     public boolean dfs(int preColor,int index,int[] color,List<List<Integer>> peopleDislike){
