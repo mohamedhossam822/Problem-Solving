@@ -9,7 +9,7 @@ class Solution {
                 if(grid[i][j]=='1')
                 {
                     Nislands++;
-                    this.CoverIsland(i,j,grid);
+                    CoverIsland(i,j,grid);
                 }
             }
         }
@@ -19,9 +19,8 @@ class Solution {
     }
     public void CoverIsland(int i,int j,char[][] grid)
     {
-        if(grid[i][j]=='1')
-            grid[i][j]='2';
-        else return;
+        if(grid[i][j]!='1') return;
+        grid[i][j]='2';
         
         if(i>0) CoverIsland(i-1,j,grid);
         if(j<grid[i].length-1) CoverIsland(i,j+1,grid);
