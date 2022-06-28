@@ -19,6 +19,7 @@
 * [Bitwise AND of Numbers Range](https://github.com/mohamedhossam822/Problem-Solving/tree/main/201-bitwise-and-of-numbers-range)[Bit manipulation]
 * [Water and Jug Problem](https://leetcode.com/problems/water-and-jug-problem/) [Math/Bézout's identity]
 * [Possible Bipartition](https://github.com/mohamedhossam822/Problem-Solving/tree/main/886-possible-bipartition) [Graphs / Bipartition]
+* [LRU Cache](https://github.com/mohamedhossam822/Problem-Solving/tree/main/146-lru-cache) [Double linked list/ HashTable]
 
  ### Hard
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
