@@ -33,6 +33,7 @@
 * [Largest Rectangle in Histogram](https://github.com/mohamedhossam822/Problem-Solving/tree/main/84-largest-rectangle-in-histogram) (Stack/Monotonic stack)
 * [Course Schedule III](https://github.com/mohamedhossam822/Problem-Solving/tree/main/630-course-schedule-iii) (Heaps/Greedy)
 * [Construct Target Array With Multiple Sums](https://github.com/mohamedhossam822/Problem-Solving/tree/main/1354-construct-target-array-with-multiple-sums) (Heaps/ Math/ new idea)
+* [Word Search II](https://github.com/mohamedhossam822/Problem-Solving/tree/main/212-word-search-ii) (Tries/BackTracking/Dfs)
 
 # Tips & Patterns
 ### LinkedList
