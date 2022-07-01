@@ -34,6 +34,7 @@
 * [Course Schedule III](https://github.com/mohamedhossam822/Problem-Solving/tree/main/630-course-schedule-iii) (Heaps/Greedy)
 * [Construct Target Array With Multiple Sums](https://github.com/mohamedhossam822/Problem-Solving/tree/main/1354-construct-target-array-with-multiple-sums) (Heaps/ Math/ new idea)
 * [Word Search II](https://github.com/mohamedhossam822/Problem-Solving/tree/main/212-word-search-ii) (Tries/BackTracking/Dfs)
+* [The Skyline Problem](https://github.com/mohamedhossam822/Problem-Solving/tree/main/218-the-skyline-problem) (Heaps/HashMap/New Idea)
 
 # Tips & Patterns
 ### LinkedList
