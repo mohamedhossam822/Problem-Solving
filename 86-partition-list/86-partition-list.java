@@ -11,39 +11,29 @@
 class Solution {
     public ListNode partition(ListNode head, int x) {
         if(head==null) return null;
-        ListNode end=null;
-        ListNode last=head;
+        ListNode before=new ListNode(0);
+        ListNode res=before;
+        
+        ListNode after=new ListNode(0);
+        ListNode afterRes=after;
+        
         ListNode curr=head;
-        ListNode pre=null;
-        while(last.next!=null) last=last.next;
-        while(curr!=end){
+        while(curr!=null){
             if(curr.val>=x){
-                
-                
-                
-                //Make last point to this node , make it new last
-                last.next=curr;
-                last=last.next;
-                
-                ListNode temp=curr.next;
-                
-                last.next=null;
-                //Define the end condition
-                if(end==null) end=last;
-                
-                //Delete the node from its place
-                if(pre!=null) pre.next=temp;
-                else head=temp;
-                
-                curr=temp;
-                
+                after.next=curr;
+                curr=curr.next;
+                after=after.next;
+                after.next=null;
             }else{
-                pre=curr;
-                curr=curr.next; 
+                before.next=curr;
+                curr=curr.next;
+                before=before.next;
+                before.next=null;
             }
             
         }
+        before.next=afterRes.next;
         
-        return head;
+        return res.next;
     }
 }
