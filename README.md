@@ -50,7 +50,6 @@
    * Kth smallest element -> Maintain a Max Heap and then pop the element O(k) space & vice versa*
 * Kth closet points to point (x,y) 
    * Same concept can be used with dijkstra to get min path
-
 ### Graphs
 * BFS & DFS are your best friends
 * Creating an Adjacency Matrix or Adjacency List can be helpful and the latter will be used more than often.
@@ -92,6 +91,7 @@
 ### Math
 * For a slope starting from x1,y1 it determines how many points lie on that line slope=(y2-y1/x2-x1) (care for Divison by zero!)
 * Bézout's identity
+* Sieve of Eratosthenes: let's say 2 is a prime number so what if we mark every multiplication of 2 as non-prime numbers
 
 # Useful Resources
 * [14 Pattern to ace the Coding Interview](https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed)
