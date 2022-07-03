@@ -1,24 +1,16 @@
-class Solution {
+public class Solution {
     public int wiggleMaxLength(int[] nums) {
-        int max=1;
-        int n=nums.length;
-        int[] Negative=new int[n];
-        int[] Postive=new int[n];
-        for(int i=n-1;i>=0;i--){
-            Negative[i]=1;
-            Postive[i]=1;
-            for(int j=i+1;j<n;j++){
-                if(nums[i]>nums[j]){
-                    Negative[i]=Math.max(1+Postive[j],Negative[i]);
-                    if(Negative[i]>max) max=Negative[i];
-                }
-                else if(nums[i]<nums[j]){
-                    Postive[i]=Math.max(1+Negative[j],Postive[i]); 
-                    if(Postive[i]>max) max=Postive[i];
-                }
+        if (nums.length < 2)
+            return nums.length;
+        int prevdiff = nums[1] - nums[0];
+        int count = prevdiff != 0 ? 2 : 1;
+        for (int i = 2; i < nums.length; i++) {
+            int diff = nums[i] - nums[i - 1];
+            if ((diff > 0 && prevdiff <= 0) || (diff < 0 && prevdiff >= 0)) {
+                count++;
+                prevdiff = diff;
             }
         }
-        
-        return max;
+        return count;
     }
 }
