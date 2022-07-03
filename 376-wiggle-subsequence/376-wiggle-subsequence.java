@@ -1,50 +1,24 @@
 class Solution {
-    int[][] grid;
-    int n;
-    int globalSum;
     public int wiggleMaxLength(int[] nums) {
-        n=nums.length;
-        grid=new int[2][n];
-        globalSum=1;
-        getMax(0,nums,true);
-        getMax(0,nums,false);
-        return globalSum;
-    }
-    private int getMax(int i,int[] nums,boolean t){
-        int sum=0;
-        int maxSum=1;
-        if(t){
-            if(grid[0][i]!=0) return grid[0][i];
-            for(int r=i+1;r<n;r++){
-                sum=getMax(r,nums,!t);
-                if(nums[i]>nums[r]){
-                    if(sum+1>maxSum){
-                        maxSum=sum+1;
-                        if(maxSum>globalSum) globalSum=maxSum;
-                    }
-                }else{
-                    getMax(r,nums,t);
+        int max=1;
+        int n=nums.length;
+        int[] Negative=new int[n];
+        int[] Postive=new int[n];
+        for(int i=n-1;i>=0;i--){
+            Negative[i]=1;
+            Postive[i]=1;
+            for(int j=i+1;j<n;j++){
+                if(nums[i]>nums[j]){
+                    Negative[i]=Math.max(1+Postive[j],Negative[i]);
+                    if(Negative[i]>max) max=Negative[i];
+                }
+                else if(nums[i]<nums[j]){
+                    Postive[i]=Math.max(1+Negative[j],Postive[i]); 
+                    if(Postive[i]>max) max=Postive[i];
                 }
             }
-            grid[0][i]=maxSum;
-            return maxSum;
         }
-        else{
-            if(grid[1][i]!=0) return grid[1][i];
-            for(int r=i+1;r<n;r++){
-                sum=getMax(r,nums,!t);
-                if(nums[i]<nums[r]){
-                    if(sum+1>maxSum){
-                        maxSum=sum+1;
-                        if(maxSum>globalSum) globalSum=maxSum;
-                    }
-                }else{
-                    getMax(r,nums,t);
-                }
-            }
-            grid[1][i]=maxSum;
-            return maxSum;
-            
-        }
+        
+        return max;
     }
 }
