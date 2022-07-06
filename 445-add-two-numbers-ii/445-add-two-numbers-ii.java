@@ -9,56 +9,66 @@
  * }
  */
 class Solution {
-    int reminder=0;
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        l1=reverse(l1);
-        l2=reverse(l2);
         
         ListNode res=null;
-        int reminder=0;
-        int val=0;
         
-        while(l1!=null || l2!=null ){
-            
-            if(l1==null){
-                val=l2.val+reminder;
-                l2=l2.next;
-            } 
-            else if(l2==null){
-                val=l1.val+reminder;
-                l1=l1.next;
-            } 
-            else{
-               val=l1.val+l2.val+reminder; 
-                l1=l1.next;
-                l2=l2.next;
-            }
-            reminder=0;
-            if(val>9) reminder=1;
-            val%=10;
-            
-            ListNode node=new ListNode(val);
+        int s1=0;
+        int s2=0;
+        
+        ListNode curr=l1;
+        while(curr!=null){
+            curr=curr.next;
+            s1++;
+        }
+        
+        curr=l2;
+        while(curr!=null){
+            curr=curr.next;
+            s2++;
+        }
+        
+        for(int i=0;i<s1-s2;i++){
+            ListNode node=new ListNode(l1.val);
+            l1=l1.next;
             node.next=res;
             res=node;
         }
+        
+        for(int i=0;i<s2-s1;i++){
+            ListNode node=new ListNode(l2.val);
+            l2=l2.next;
+            node.next=res;
+            res=node;
+        }
+        
+        
+        while(l1!=null || l2!=null ){
+            ListNode node=new ListNode(l1.val+l2.val);
+            l1=l1.next;
+            l2=l2.next;
+            node.next=res;
+            res=node;
+        }
+        
+        ListNode pre=null;
+        int reminder=0;
+        while(res!=null){
+            int val=reminder+res.val;
+            reminder=val/10;
+            res.val=val%10;
+            
+            ListNode next=res.next;
+            res.next=pre;
+            pre=res;
+            if(next==null) break;
+            res=next;
+        }
         if(reminder==1){
-            ListNode node=new ListNode(reminder);
+            ListNode node=new ListNode(1);
             node.next=res;
             res=node;
         }
         return res;
-    }
-    
-    public ListNode reverse(ListNode head){
-        ListNode prev=null;
-        
-        while(head!=null){
-            ListNode next=head.next;
-            head.next=prev;
-            prev=head;
-            if(next==null) return head;
-            head=next;
-        }
-        return null;
     }
 }
