@@ -5,13 +5,12 @@ class Solution {
         s1Size=s1.length();
         s2Size=s2.length();
         grid=new Boolean[s1Size+1][s2Size+1];
-        
+        if(s1Size+s2Size!=s3.length()) return false;
         return isInterleveled(0,s1,0,s2,0,s3);
     }
     
     public boolean isInterleveled(int i,String s1,int j, String s2,int k, String s3){
-        if(k==s3.length() && i==s1Size && j==s2Size) return true;
-        if(k==s3.length()) return false;
+        if(k==s3.length()) return true;
         if(grid[i][j]!=null) return grid[i][j];
         
         if(i<s1Size && s1.charAt(i)==s3.charAt(k) && j<s2Size && s2.charAt(j)==s3.charAt(k))
