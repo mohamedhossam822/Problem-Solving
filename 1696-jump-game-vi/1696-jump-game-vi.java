@@ -17,8 +17,9 @@ class Solution {
             dp[i]=nums[i]+largetElements.lastKey();
             //Add the new element
             size++;
-            if(largetElements.containsKey(dp[i])) largetElements.put(dp[i],1+largetElements.get(dp[i]));
-            else largetElements.put(dp[i],1);
+            int freq=1;
+            if(largetElements.containsKey(dp[i])) freq+=largetElements.get(dp[i]);
+            largetElements.put(dp[i],freq);
         }
         return dp[0];
         
