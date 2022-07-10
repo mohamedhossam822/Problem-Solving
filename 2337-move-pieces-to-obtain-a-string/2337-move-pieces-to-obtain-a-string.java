@@ -1,29 +1,21 @@
 class Solution {
     public boolean canChange(String start, String target) {
-        Stack<element> sStack=new Stack<>();
-        Stack<element> tStack=new Stack<>();
-        for(int i=0;i<start.length();i++){
-            char ch=start.charAt(i);
-            if(ch!='_') sStack.push(new element(ch,i));
-            ch=target.charAt(i);
-            if(ch!='_') tStack.push(new element(ch,i));
+        int sIndex=0;
+        int tIndex=0;
+        int n=start.length();
+        while(sIndex<n && tIndex<n){
+            while(sIndex<n && start.charAt(sIndex)=='_') sIndex++;
+            
+            while(tIndex<n && target.charAt(tIndex)=='_') tIndex++;
+            if(sIndex==n && tIndex==n) return true;
+            if(sIndex==n || tIndex==n) return false;
+            if(start.charAt(sIndex)!=target.charAt(tIndex)) return false;
+            if(start.charAt(sIndex)=='L' && tIndex>sIndex) return false;
+            if(start.charAt(sIndex)=='R' && tIndex<sIndex) return false;
+            tIndex++;
+            sIndex++;
         }
-        while(!sStack.empty() && !tStack.empty()){
-            element s=sStack.pop();
-            element t=tStack.pop();
-            if(s.ch!=t.ch) return false;
-            if(s.ch=='L' && t.index>s.index) return false;
-            if(s.ch=='R' && t.index<s.index) return false;
-        }
-        if(!sStack.empty() || !tStack.empty()) return false;
+        
         return true;
-    }
-    class element{
-        char ch;
-        int index;
-        element(char ch,int index){
-            this.ch=ch;
-            this.index=index;
-        }
     }
 }
