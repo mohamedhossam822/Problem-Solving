@@ -9,9 +9,10 @@ class Solution {
             while(tIndex<n && target.charAt(tIndex)=='_') tIndex++;
             if(sIndex==n && tIndex==n) return true;
             if(sIndex==n || tIndex==n) return false;
-            if(start.charAt(sIndex)!=target.charAt(tIndex)) return false;
-            if(start.charAt(sIndex)=='L' && tIndex>sIndex) return false;
-            if(start.charAt(sIndex)=='R' && tIndex<sIndex) return false;
+            char sChar=start.charAt(sIndex);
+            if(sChar!=target.charAt(tIndex)) return false;
+            if(sChar=='L' && tIndex>sIndex) return false;
+            if(sChar=='R' && tIndex<sIndex) return false;
             tIndex++;
             sIndex++;
         }
