@@ -1,23 +1,16 @@
-import java.util.Hashtable;
 class Solution {
     public int subarraySum(int[] nums, int k) {
-        int counter=0,n=nums.length;
-        Hashtable<Integer, Integer> prefixSum=new Hashtable<>();
-        prefixSum.put(0,1);
+        HashMap<Integer,Integer> sums=new HashMap<>();
         int sum=0;
-        
-        for(int i=0;i<n;i++){
+        int res=0;
+        for(int i=0;i<nums.length;i++){
             sum+=nums[i];
-            if(prefixSum.containsKey(sum-k)){
-                counter=counter+prefixSum.get(sum-k);
-            }
-            if(prefixSum.containsKey(sum)){
-                prefixSum.put(sum,prefixSum.get(sum)+1);
-            }else{
-                prefixSum.put(sum,1);
-            }  
+            if(sum==k) res++;
+            int difference=sum-k;
+            if(sums.containsKey(difference)) res+=sums.get(difference);
+            if(sums.containsKey(sum)) sums.put(sum,sums.get(sum)+1);
+            else sums.put(sum,1);
         }
-        return counter;
-        
+        return res;
     }
 }
