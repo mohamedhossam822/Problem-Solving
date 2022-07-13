@@ -24,7 +24,4 @@ class Solution {
         return Math.max(Sold,NoStock);
         
     }
-    
-    
-    
 }
