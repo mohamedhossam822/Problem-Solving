@@ -13,26 +13,23 @@
  *     }
  * }
  */
-
-import java.util.Arrays;
- 
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if(preorder.length==0) return null;
-        TreeNode result=new TreeNode();
-        result.val=preorder[0];
-        if(preorder.length==1) return result;
-        int index= findIndex(inorder,preorder[0]);
-        result.left=buildTree(Arrays.copyOfRange(preorder, 1, index+1),
-                              Arrays.copyOfRange(inorder, 0, index));
-        result.right=buildTree(Arrays.copyOfRange(preorder, index+1, preorder.length),
-                              Arrays.copyOfRange(inorder, index+1, inorder.length));
-        return result;
+        int n=preorder.length;
+        return buildTree(0,n,preorder,0,n,inorder);
     }
-    public int findIndex(int[] inorder,int val){
-        for(int i=0;i<inorder.length;i++){
-            if(val==inorder[i]) return i;
+    public TreeNode buildTree(int pStart,int pEnd,int[] preorder,int iStart,int iEnd, int[] inorder) {
+        if(pStart==pEnd) return null;
+        int val=preorder[pStart];
+        TreeNode root=new TreeNode(val);
+        int k=0;
+        for(int i=iStart;i<iEnd;i++){
+            if(val==inorder[i]) break;
+            k++;
+            
         }
-        return -1;
+        root.left=buildTree(pStart+1,pStart+k+1,preorder,iStart,iStart+k,inorder);
+        root.right=buildTree(pStart+k+1,pEnd,preorder,iStart+k+1,iEnd,inorder);
+        return root;
     }
 }
