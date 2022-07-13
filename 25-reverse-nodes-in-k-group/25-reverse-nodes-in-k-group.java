@@ -10,35 +10,46 @@
  */
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
-        Stack<ListNode> stack = new Stack<>();
-        int cInserted=0;
-        ListNode dummy=new ListNode();
-        ListNode current=dummy;
+        ListNode res=null;
+        ListNode prev=null;
+        
+        boolean reverse=true;
+        
         while(head!=null){
-            cInserted=0;
+            
+            ListNode fast=head;
+            reverse=true;
             for(int i=0;i<k;i++){
-                stack.push(head);
-                cInserted++;
-                if(head.next==null) {
-                    head=null;
+                if(fast==null){
+                    reverse=false;
                     break;
                 }
-                else head=head.next;
+                fast=fast.next;
             }
-            while(cInserted==k &&!stack.empty()){
-                current.next=stack.pop();
-                current=current.next;
-            }
-            if(cInserted<k){
-                Stack<ListNode> Tempstack = new Stack<>();
-                while(!stack.empty()) Tempstack.push(stack.pop());
-                while(!Tempstack.empty()){
-                    current.next=Tempstack.pop();
-                    current=current.next;
+            ListNode slow=head;
+            ListNode last=prev;
+            prev=null;
+            if(reverse)
+            {
+                while(head!=fast){
+                    ListNode next=head.next;
+                    head.next=prev;
+                    prev=head;
+                    head=next;
+                    System.out.print(prev.val);
                 }
+
+                if(res==null) res=prev;
+                else last.next=prev;
+
+                prev=slow;
             }
+            else{
+                last.next=head;
+                break;
+            }
+            
         }
-        current.next=null;
-        return dummy.next;
+        return res;
     }
 }
