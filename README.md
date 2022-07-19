@@ -13,6 +13,7 @@
 * [Possible Bipartition](https://github.com/mohamedhossam822/Problem-Solving/tree/main/886-possible-bipartition) [Graphs / Bipartition]
 * [LRU Cache](https://github.com/mohamedhossam822/Problem-Solving/tree/main/146-lru-cache) [Double linked list/ HashTable]
 * [Queue Reconstruction by Height](https://github.com/mohamedhossam822/Problem-Solving/tree/main/406-queue-reconstruction-by-height) [Arrays/Sorting]
+* [Next Permutation](https://github.com/mohamedhossam822/Problem-Solving/tree/main/31-next-permutation) (Math)
 
  ### Hard
 * [Design Add and Search Words Data Structure](https://github.com/mohamedhossam822/Problem-Solving/tree/main/211-design-add-and-search-words-data-structure) (Tries/ Backtracking / DFS)
