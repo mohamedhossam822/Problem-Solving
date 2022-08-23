@@ -19,14 +19,17 @@ class Solution {
             if(fast==null) fast=head;
         }
         if(fast==null || fast==head) return head;
+        
         ListNode preSlow=null;
         ListNode preFast=null;
+        
         while(fast!=null){
             preSlow=slow;
             slow=slow.next;
             preFast=fast;
             fast=fast.next;
         }
+        
         preSlow.next=null;
         preFast.next=head;
         
