@@ -10,36 +10,26 @@
  */
 class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        int size=0;
-        ListNode current=head;
-        
-        //Get the size of list
-        while(current!=null){
-            size++;
-            current=current.next;
-        }
-        if(size==0) return null;
-        //Get the new starting node
-        while(k>=size) k-=size;
-        if(k==0) return head;
-        k=size-k;
-        
-        //Seperate the old trail and the new trail 1,2,3 - 4,5
-        ListNode res=head;
-        ListNode pre=null;
+        if(head==null) return null;
+        ListNode slow=head;
+        ListNode fast=head;
         
         for(k=k;k>0;k--){
-            pre=res;
-            res=res.next; 
-        } 
+            fast=fast.next;
+            if(fast==null) fast=head;
+        }
+        if(fast==null || fast==head) return head;
+        ListNode preSlow=null;
+        ListNode preFast=null;
+        while(fast!=null){
+            preSlow=slow;
+            slow=slow.next;
+            preFast=fast;
+            fast=fast.next;
+        }
+        preSlow.next=null;
+        preFast.next=head;
         
-        pre.next=null;
-        
-        //make the last node in the new trail point to the old trail
-        current=res;
-        while(current.next!=null) current=current.next;
-        current.next=head;
-        
-        return res;
+        return slow;
     }
 }
