@@ -11,25 +11,20 @@ class Solution {
             else{
                 len++;
                 if(number!=1){
-                    String s=String.valueOf(number);
-                    len+=s.length();
-                    for(char c : s.toCharArray()){
-                        chars[index]=c;
-                        index++;
+                    for(char c : Integer.toString(number).toCharArray()){
+                        len++;
+                        chars[index++]=c;
                     }
                 }
-                chars[index]=ch;
-                index++;
+                chars[index++]=ch;
                 pre=ch;
                 number=1;
             }
         }
         if(number!=1){
-            String s=String.valueOf(number);
-            len+=s.length();
-            for(char c : s.toCharArray()){
-                chars[index]=c;
-                index++;
+            for(char c : Integer.toString(number).toCharArray()){
+                len++;
+                chars[index++]=c;
             }
         }
         
